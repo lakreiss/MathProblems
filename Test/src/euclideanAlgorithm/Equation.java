@@ -8,7 +8,6 @@ public class Equation {
 	private boolean sCisNegative = false;
 	private int[] originalNumbers = new int[2];
 	private int gcd = 1;
-	public int x;
 
 
 	public int getGcd() {
