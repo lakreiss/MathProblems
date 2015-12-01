@@ -51,7 +51,10 @@ public class Main {
 				Equation e = generateEquationFromFile(input);
 				System.out.println(getFullAnswer(e));
 			} catch (NullPointerException n) {
-				System.out.println("Incorrect format");
+				System.out.println("Incorrect format\n");
+			}
+			if (input.hasNextLine()){
+				input.nextLine();
 			}
 		}
 	}
