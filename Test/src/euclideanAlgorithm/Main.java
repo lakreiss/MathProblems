@@ -26,10 +26,15 @@ public class Main {
 			}
 		} else {
 			System.out.println(userIntro());
-			Equation e = generateEquationFromUser(console);
-			while (!e.equals(null)){
-				System.out.println("\n" + getFullAnswer(e));
-				e = generateEquationFromUser(console);
+			//cant say continue
+			boolean onward = true;
+			while (onward){
+				try {
+					Equation e = generateEquationFromUser(console);
+					System.out.println("\n" + getFullAnswer(e));
+				} catch (NullPointerException n) {
+					onward = false;
+				}
 			}
 		}
 	}
@@ -42,10 +47,10 @@ public class Main {
 	private static void process(Scanner input) throws FileNotFoundException {
 		System.out.println();
 		while (input.hasNextLine()){
-			Equation e = generateEquationFromFile(input);
-			if (!e.equals(null)){ //for some reason this doesnt work
+			try {
+				Equation e = generateEquationFromFile(input);
 				System.out.println(getFullAnswer(e));
-			} else {
+			} catch (NullPointerException n) {
 				System.out.println("Incorrect format");
 			}
 		}

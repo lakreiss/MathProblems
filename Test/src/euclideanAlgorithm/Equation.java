@@ -9,7 +9,6 @@ public class Equation {
 	private int[] originalNumbers = new int[2];
 	private int gcd = 1;
 
-
 	public int getGcd() {
 		return gcd;
 	}
@@ -75,7 +74,6 @@ public class Equation {
 			firstCoefficient = v1.getC1() - v2.getC1();
 			secondCoefficient = v1.getC2() - v2.getC2();
 		}
-		
 	}
 
 	public int getFirstCoefficient() {
