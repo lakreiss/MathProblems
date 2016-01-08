@@ -1,0 +1,61 @@
+function uncouple(A, t, x, y)
+
+%A-lamda*I
+[V1,V2] = quad(1, -A(1,1)-A(2,2), A(1,1)*A(2,2)-A(1,2)*A(2,1));
+E = [V1, 0; 0, V2];
+
+[X11,X12,X21,X22] = eigenVector(A, E);
+
+X = [X11,X12;X21,X22];
+
+[c1, c2] = constants(E, X,t,x,y);
+C = [c1,c2];
+
+dispResults(X, C(1), C(2), E(1,1), E(2,2))
+
+endfunction
+
+
+
+
+
+
+function [val1, val2] = quad(a,b,c)
+
+val1 = (-b+sqrt(b*b-4*a*c))/(2*a);
+val2 = (-b-sqrt(b*b-4*a*c))/(2*a);
+return;
+
+endfunction
+
+
+function [X11,X12,X21,X22] = eigenVector(A, E)
+
+X11 = 1;
+X12 = 1;
+X21 = (A(1,1) - E(1,1))/(-A(1,2));
+X22 = (A(1,1) - E(2,2))/(-A(1,2));
+return;
+
+
+endfunction
+
+
+function [c1, c2] = constants(E, X,t,x,y)
+c2 = ((( (y)*(X(1,1)*e^(E(1,1)*t)) - ((x)*(X(2,1)*e^(E(1,1)*t)))) / (((X(1,1)*e^(E(1,1)*t))*(X(2,2)*e^(E(2,2)*t))) - ((X(2,1)*e^(E(1,1)*t))*(X(1,2)*e^(E(2,2)*t))))));
+
+c1 = 	(x-X(1,2)*c2*e^(E(2,2)*t))/(X(1,1)*e^(E(1,1)*t));
+return;
+
+
+endfunction
+
+
+
+function dispResults(X, const1, const2, eigen1, eigen2)
+
+printf("\n   x = %.3fe^%.3ft + %.3fe^%.3ft \n", (X(1,1)*const1), eigen1, (X(1,2)*const2), eigen2)
+printf("\n   y = %.3fe^%.3ft + %.3fe^%.3ft \n\n", (X(2,1)*const1), eigen1, (X(2,2)*const2), eigen2)
+
+
+endfunction
