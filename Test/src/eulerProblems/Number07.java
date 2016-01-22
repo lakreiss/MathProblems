@@ -1,8 +1,6 @@
 package eulerProblems;
 
-import java.util.ArrayList;
-
-public class Number7 {
+public class Number07 {
 	
 	//find the 10,001 prime number
 	public static final int NTH_PRIME_NUMBER = 10001;
