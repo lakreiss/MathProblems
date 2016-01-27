@@ -13,9 +13,24 @@ public class Number06 {
 	 * numbers and the square of the sum.
 	 */
 	
+	public static final int nums = 100;
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int sumOfSquares = getSumOfSquares();
+		int squareOfSums = getSquareOfSums();
+		System.out.println(squareOfSums - sumOfSquares);
+	}
 
+	private static int getSquareOfSums() {
+		return (int) Math.pow(((nums * (nums + 1)) / 2), 2);
+	}
+
+	private static int getSumOfSquares() {
+		int total = 0;
+		for (int i = 1; i <= nums; i++){
+			total += Math.pow(i, 2);
+		}
+		return total;
 	}
 
 }
