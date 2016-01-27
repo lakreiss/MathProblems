@@ -10,30 +10,76 @@ public class Number05Attempt2 {
 	 * without any remainder.
 	 * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 	 */
+	
+	//solvable with values:
+	/*
+	 * MAX_DIVISOR = 20;
+	 * TOTAL_PRIMES_POSSIBLE = 9
+	 * PRIMES_POSSIBLE_PER_NUMBER = 3
+	 */
+	
+	public static final int MAX_DIVISOR = 20;
+	public static final int TOTAL_PRIMES_POSSIBLE = 9; //(int) (MAX_DIVISOR / Math.log(MAX_DIVISOR) + 3);
+	public static final int PRIMES_POSSIBLE_PER_NUMBER = 3;
 
 	public static void main(String[] args) {
-		ArrayList<Integer> allFactors = new ArrayList<Integer>();
-		for (int i = 2; i <= 20; i++){
+		int[][] allFactors = new int[TOTAL_PRIMES_POSSIBLE][2];
+		for (int i = 2; i <= MAX_DIVISOR; i++){
 			ArrayList<Integer> factors = primeFactorize(i);
-			update(allFactors, factors);
-			Collections.sort(allFactors);
+			int[][] newFactors = convertToIntArray(factors);
+			compare(newFactors, allFactors);
 		}
-		System.out.println(allFactors);
+		System.out.println(process(allFactors));
 	}
 	
-	private static void update(ArrayList<Integer> allFactors, ArrayList<Integer> factors) {
-		int nextVal = 0;
-		for (int i : factors){
-			if (allFactors.size() > nextVal){
-				if (allFactors.get(nextVal) == i){
+	private static void compare(int[][] newFactors, int[][] allFactors) {
+		for (int i = 0; i < newFactors.length; i++){
+			boolean exists = false;
+			int fNum = 0;
+			while (!exists){
+				if (allFactors[fNum][0] == 0){
+					allFactors[fNum][0] = newFactors[i][0];
+					allFactors[fNum][1] = newFactors[i][1];
+					exists = true;
+				} else if (allFactors[fNum][0] == newFactors[i][0]){
+					if (allFactors[fNum][1] < newFactors[i][1]){
+						allFactors[fNum][1] = newFactors[i][1];
+					}
+					exists = true;
 				} else {
-					allFactors.add(i);
+					fNum++;
 				}
-			} else {
-				allFactors.add(i);
 			}
-			nextVal++;
 		}
+	}
+
+	private static int process(int[][] allFactors) {
+		int total = 1;
+		for (int i = 0; i < allFactors.length; i++){
+			total *= Math.pow(allFactors[i][0], allFactors[i][1]);
+		}
+		return total;		
+	}
+
+	private static int[][] convertToIntArray(ArrayList<Integer> factors) {
+		int[][] allFactors = new int[PRIMES_POSSIBLE_PER_NUMBER][2];
+		for (int i : factors){
+			boolean exists = false;
+			int fNum = 0;
+			while (!exists){
+				if (allFactors[fNum][0] == 0){
+					allFactors[fNum][0] = i;
+					allFactors[fNum][1]++;
+					exists = true;
+				} else if (allFactors[fNum][0] == i){
+					allFactors[fNum][1]++;
+					exists = true;
+				} else {
+					fNum++;
+				}
+			}
+		}
+		return allFactors;
 	}
 
 	private static ArrayList<Integer> primeFactorize(int i) {
