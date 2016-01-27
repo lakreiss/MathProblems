@@ -1,7 +1,6 @@
 package eulerProblems;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Number05Attempt2 {
 
@@ -18,9 +17,9 @@ public class Number05Attempt2 {
 	 * PRIMES_POSSIBLE_PER_NUMBER = 3
 	 */
 	
-	public static final int MAX_DIVISOR = 20;
-	public static final int TOTAL_PRIMES_POSSIBLE = 9; //(int) (MAX_DIVISOR / Math.log(MAX_DIVISOR) + 3);
-	public static final int PRIMES_POSSIBLE_PER_NUMBER = 3;
+	public static final int MAX_DIVISOR = 30;
+	public static final int TOTAL_PRIMES_POSSIBLE = 14; //(int) (MAX_DIVISOR / Math.log(MAX_DIVISOR) + 3);
+	public static final int PRIMES_POSSIBLE_PER_NUMBER = 5;
 
 	public static void main(String[] args) {
 		int[][] allFactors = new int[TOTAL_PRIMES_POSSIBLE][2];
@@ -53,8 +52,8 @@ public class Number05Attempt2 {
 		}
 	}
 
-	private static int process(int[][] allFactors) {
-		int total = 1;
+	private static long process(int[][] allFactors) {
+		long total = 1;
 		for (int i = 0; i < allFactors.length; i++){
 			total *= Math.pow(allFactors[i][0], allFactors[i][1]);
 		}
