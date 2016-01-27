@@ -1,5 +1,9 @@
 package eulerProblems;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Number08 {
 	
 	/*
@@ -29,8 +33,30 @@ public class Number08 {
 	 * What is the value of this product?
 	 */
 
-	public static void main(String[] args){
-		
+	public static void main(String[] args) throws FileNotFoundException{
+		Scanner file = new Scanner(new File("bigNum.txt"));
+		String completeNum = file.nextLine();
+		int startIndex = 0;
+		int endIndex = 13;
+		long maxProduct = convertToProduct(completeNum.substring(startIndex, endIndex));
+		while (endIndex < completeNum.length()){
+			long newProduct = convertToProduct(completeNum.substring(startIndex, endIndex));
+			if (newProduct > maxProduct){
+				maxProduct = newProduct;
+			}
+			startIndex++;
+			endIndex++;
+		}
+		System.out.println(maxProduct);
+	}
+
+	private static long convertToProduct(String s) {
+		long total = 1;
+		for (int i = 0; i < 13; i++){
+			String t = "" + s.charAt(i);
+			total *= Integer.parseInt(t);
+		}
+		return total;
 	}
 	
 }
