@@ -34,7 +34,7 @@ public class Number08 {
 	 */
 
 	public static void main(String[] args) throws FileNotFoundException{
-		Scanner file = new Scanner(new File("bigNum.txt"));
+		Scanner file = new Scanner(new File("Number08BigNum.txt"));
 		String completeNum = file.nextLine();
 		int startIndex = 0;
 		int endIndex = 13;
