@@ -47,6 +47,7 @@ public class Number08 {
 			startIndex++;
 			endIndex++;
 		}
+		file.close();
 		System.out.println(maxProduct);
 	}
 
