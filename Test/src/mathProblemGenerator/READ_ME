@@ -1,0 +1,7 @@
+I originally created this package as a possible aspect of the computer game I was working on earlier.
+However, I now see other applications such as helping elementary school students practice their arithmetic.
+
+The program runs on an infinite loop of problem generating, with progress reports every 20 questions. 
+
+One drawback of the program is that it currently only supports computer math, so dividing two integers always 
+rounds down to the next integer instead of outputting decimal numbers or fractions. 

@@ -1,0 +1,17 @@
+Implements the Euclidean Algorithm to solve problems in the form:
+
+xA + yB = gcd(A, B), where A and B are given integers and gcd(A, B) is the greatest common divisor of A and B.
+
+The user can pass A and B into the program via a file or typing from the keyboard.
+A sample input of 2, -1 would produce this sample output:
+
+For the equation: (x * 2) + (y * -1) = 1
+The first coefficient is 1
+The second coefficient is 1
+The greatest common divisor is 1
+1 * 2 + 1 * -1 = 1
+
+As demonstrated by the sample above, the program calculates x, y, and gcd(A, B), and displays the data
+in a simple, intuitive structure. 
+
+This program was written after studying discrete mathematics in IB Further Math class.

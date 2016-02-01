@@ -1,0 +1,5 @@
+The Euler Problems, which can be found at projecteuler.net, are a set of over 500 problems written to encourage
+computer programmers and mathematicians to approach difficult problems from different angles. This can be 
+interpreted to focus on maximizing aspects such as run-time, memory, etc. The website suggests abiding by the 
+"1 minute rule," stating that runtime of the program should take no more than 1 minute on a moderately powered
+computer. 

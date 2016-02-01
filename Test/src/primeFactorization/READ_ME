@@ -1,0 +1,2 @@
+This program supports both file and manual inputs, taking in an int or long and outputting an ArrayList with 
+the prime factorization of the value. This program works up to 9223372036854775807 (LONG.MAX_VALUE).
