@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println(Long.MAX_VALUE);
 		Scanner console = new Scanner(System.in);
 		System.out.print("File or entered manually? (type f for file) ");
 		if (console.nextLine().toLowerCase().equals("f")){
