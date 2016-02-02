@@ -37,10 +37,24 @@ public class Number11 {
 
 	public static final int GRID_LENGTH = 20;
 	public static final int GRID_WIDTH = 20;
+	public static final int IN_A_ROW = 4;
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		Scanner file = new Scanner(new File("Number08BigNum.txt"));
-
+		int maxProduct = 0;
+		
+		//converts the text grid into a double int array
+		Scanner file = new Scanner(new File("Number11Grid.txt"));
+		int[][] grid = new int[GRID_LENGTH][GRID_WIDTH];
+		for (int i = 0; i < GRID_LENGTH; i++){
+			Scanner line = new Scanner(file.nextLine());
+			for (int j = 0; j < GRID_WIDTH; j++){
+				grid[i][j] = line.nextInt();
+			}
+		}
+		
+		for (int i = 0; i < GRID_LENGTH - IN_A_ROW; i++){
+			
+		}
 	}
 
 }
