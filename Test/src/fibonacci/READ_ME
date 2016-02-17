@@ -1,0 +1,5 @@
+Uses dynamic programming techniques to quickly calculate the nth term in the Fibonacci series. 
+
+In order to visualize just how powerful dynamic programming is, try running the program with n = 50;
+Then comment out the memoization, and run again. My computer took 90 seconds to process this, while the 
+original run took less than 1 second. O(exponential) vs O(polynomial) is a big difference.
