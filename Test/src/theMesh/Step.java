@@ -9,6 +9,6 @@ public class Step {
 	}
 	
 	public String toString(){
-		return num1 + " combines with " + num2 + "\n";
+		return num1 + " combines with " + num2;
 	}
 }
