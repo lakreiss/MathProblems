@@ -29,17 +29,6 @@ public class Main {
 		}
 	}
 
-	private static ArrayList<Integer> getNums(String numsInStringForm) {
-		Scanner line = new Scanner(numsInStringForm);
-		ArrayList<Integer> nums = new ArrayList<Integer>();
-		while (line.hasNext()){
-			if (line.hasNextInt()){
-				nums.add(line.nextInt());
-			}
-		}
-		return nums;
-	}
-
 	private static boolean findBestChoice(ArrayList<Integer> nums, int goal, int originalGoal, ArrayList<Step> allSteps) {
 		if (memo.get(nums)!= null){
 			return memo.get(nums);
@@ -63,5 +52,15 @@ public class Main {
 		}
 		
 	}
-
+	
+	private static ArrayList<Integer> getNums(String numsInStringForm) {
+		Scanner line = new Scanner(numsInStringForm);
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+		while (line.hasNext()){
+			if (line.hasNextInt()){
+				nums.add(line.nextInt());
+			}
+		}
+		return nums;
+	}
 }
